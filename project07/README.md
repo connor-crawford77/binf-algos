@@ -160,5 +160,7 @@ Connor Crawford: I really enjoyed working through these functions with my group 
 ## Other member
 Aaronie Jersha Jenyfred: For this project, I feel the conceptual understanding was the hardest part. The overview of pseudocode that was given for eaach function really helped in navigating the algorithmic logic. This project also broadened my understanding of indexing and string operations. Also, debugging and brainstorming together as a group made the work real smooth. 
 
+Nicholas Bottomley: The implementation was relatively straightforward once we were able to understand the conceptual parts. The pseudocode and slides from the lecture powerpoint were extremely useful for understanding what was happening. My groupmates helped fix any other confusion that I had during our group meetings. Overall, this project went very smoothly and we were able to successfully implement a working BWT and run-length encoding algorithm.
+
 # Generative AI Appendix
 Generative AI was not used in this project.
