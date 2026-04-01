@@ -85,8 +85,8 @@ class SmithWaterman:
         current_row, current_col = maximum_position
         aligned_seq1 = ""
         aligned_seq2 = ""
-        while self.traceback_matrix[current_row][current_col] != self.end:
-            current_move = self.traceback_matrix[current_row][current_col]
+        current_move = self.traceback_matrix[current_row][current_col]
+        while current_move != self.end:
             if current_move == self.diag:
                 aligned_seq1 = self.seq1[current_row - 1] + aligned_seq1
                 aligned_seq2 = self.seq2[current_col - 1] + aligned_seq2
@@ -100,6 +100,7 @@ class SmithWaterman:
                 aligned_seq1 = "-" + aligned_seq1
                 aligned_seq2 = self.seq2[current_col - 1] + aligned_seq2
                 current_col -= 1
+            current_move = self.traceback_matrix[current_row][current_col]
 
         return aligned_seq1, aligned_seq2
 
@@ -109,16 +110,15 @@ class SmithWaterman:
         Methods that populates the scoring and traceback matrices with the appropriate values and calls the max_scores method to get the best score and their indices.
         return: Max score of the scoring matrix and the indices it occurs at.
         """
-
-        i = 1
-        j = 1
-        # Make sure we're not going out of the range of any sequences since they can have differing lengths
-        while i <= len(self.seq1):
-            while j <= len(self.seq2):
+        for i, row in enumerate(self.scoring_matrix):
+            # skip first row since it will always be the end
+            if i == 0:
+                continue
+            for j, col in enumerate(row):
+                # skip first column since it will always be the end
+                if j == 0:
+                    continue
                 self.scoring_matrix[i][j], self.traceback_matrix[i][j] = self.cal_score(i, j)
-                j += 1
-            j = 1
-            i += 1
 
         max_score, indices = self.max_scores()
 
