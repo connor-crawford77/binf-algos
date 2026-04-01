@@ -51,7 +51,7 @@ AAAA
 ```
 
 
-## Data Documentation
+## Data Documentation and Initial Observations
 The test data are simple nucleotide sequences where optimal alignments can easily be inferred
 with an eye test.
 
@@ -61,6 +61,16 @@ the second sequence, and the last four nucleotides of the first sequence line up
 Therfore, since we are doing local alignment, we should expect to see those two stretches of the sequences as two optimal alignments since there is no
 where else in the two sequences where we see a stretch of four our more nucleotides match exactly, and this is what we see from this class.
 
+I do have a concern with the current way it calculate scores - the traceback of the max score doesn't account for the fact that the max score could be coming from more than one place - it just selects the first place it's encountered. I may need to update this to randomly choose a max score so there's more diversity in alignments/ all good alignments are shown.
 
+## Changes, Challenges, and Next Steps
+As I previously discussed the main divergence of this project from part 2 is the creation of a class object for alignment. This step didn't add too much complexity to the process - the main change was really just defining the class attributes. All the functions were practically the same as in the pseudocode and the original project for this algorithm - the big difference was that a lot of parameter specifications weren't needed any more because they were present in the init - this resulted in them being called with ```self.(whatever attribute was needed)```. Outside of that the logic/code is the same. Again, this decision was made to simplify the development of the broader functionality of the program which will grab sequences from a reference genome and report on their alignments.
 
+The next steps will be:  
 
+1. Test the class on increasingly large sequence sizes to see how much it can handle.
+2. Implement genome parsing funtionality - I think this may be easy enough to contain in a function or two but I might be underestimating it.
+3. Add some reporter functionality, at the least, report what locations in the original sequences the alignment(s) come from.
+4. Put in error handling measures to ensure the tool reports user errors if they occur (like invalid reference sequence names).
+5. Probably should put in some more detailed testing to make sure everything is behaving the way it is supposed to.
+6. Fully document/add the Quick Start.
