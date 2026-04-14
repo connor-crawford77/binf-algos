@@ -1,4 +1,3 @@
 ## Requirements for Running the Script
-The provided script only requires a current version of python downloaded and an environment that has numpy installed.
-All that is required is that the script is downloaded to your working directory - you can either update the script directly at the bottom to 
-run test examples, or create a new script and import the SmithWaterman class and test it out that way.
+The provided scripts only require a current version of Python downloaded and an environment that has numpy installed, all other imports used should be present in base Python.
+All that is required is that the scripts are all downloaded to your working directory - usage instructions are provided in the README.
