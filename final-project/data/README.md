@@ -1,28 +1,8 @@
 ## Data to Use For This Implementation
-This implementation is just the baseline functionality of alignment. It doesn't grab sequences from reference genomes yet, and thus,
-you don't need access to reference genomes or any large datasets for that matter. Below I'll provide some example sequences and code you can use
-to get the class implementation to work. 
+This implementation requires that you have two reference genomes and their associated GFF files from RefSeq ONLY (important, it won't work on GenBank reference files). Below are instructions on how you can download genome and annotation files in the correct format:
 
-```
-# Example seqs
-seq1 = 'TACTTAG'
-seq2 = 'CACATTAA'
+Navigate to the NCBI website -> Click Genomes & Maps (should be near the middle - left hand side of the page -> click on Assembly which should be the first result to pop up -> In the search bar look up the genome or species you are interested in and click on it's link
 
-# Multiple alignments example
-seq1 = "TTATAAAA"
-seq2 = "AAAATTAT"
+Once on the the right page for your genome:
 
-
-# Example class instantiation
-sw = SmithWaterman(seq1, seq2)
-
-# Example method call for sequence alignment
-aligned_seqs = sw.sequence_alignment()
-
-# Parsing and printing alignments
-for i, pair in enumerate(aligned_seqs):
-    print(f'Optimal alignment {i + 1}:')
-    print(pair[0])
-    print(pair[1])
-
-```
+Click download -> make sure the Genome sequences (FASTA) and Annotation features (GFF) boxes are checked and that the RefSeq only circle is clicked -> Press the download button -> Move files to the directory that you have the scripts in
